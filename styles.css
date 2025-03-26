@@ -498,34 +498,106 @@ section {
 /* 리스트형 뷰 스타일 */
 .food-container.list-view {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .food-container.list-view .food-item {
     display: flex;
-    height: 200px;
+    min-height: 180px;
+    height: auto;
 }
 
 .food-container.list-view .food-image {
-    width: 300px;
-    height: 100%;
+    flex: 0 0 180px;
+    height: auto;
+    min-height: 180px;
 }
 
 .food-container.list-view .food-info {
     flex: 1;
-    padding: 1rem;
+    padding: 1.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    overflow: visible;
+}
+
+.food-container.list-view .food-info .main-info {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.food-container.list-view .food-info .sub-info {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .food-container.list-view .food-info h3 {
-    margin-bottom: 0.5rem;
+    margin: 0;
+    font-size: 1.2rem;
 }
 
-.food-container.list-view .service-options {
+.food-container.list-view .food-info .description {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+    font-size: 0.95rem;
+}
+
+.food-container.list-view .food-info .tags {
+    margin: 0.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.food-container.list-view .food-info .tags span {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.85rem;
+}
+
+.food-container.list-view .food-info .rating {
     margin: 0.5rem 0;
 }
 
+.food-container.list-view .food-info .service-options {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.food-container.list-view .food-info .service-options .service-item {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+}
+
 .food-container.list-view .nearby-attractions {
-    margin-top: 0.5rem;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.food-container.list-view .nearby-attractions h4 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1rem;
+}
+
+.food-container.list-view .nearby-attractions ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.food-container.list-view .food-item.korean-recommended .title-area::after {
+    content: "한국인 추천";
+    background: #ff6b6b;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {
@@ -536,7 +608,19 @@ section {
     
     .food-container.list-view .food-image {
         width: 100%;
-        height: 200px;
+        height: 180px;
+        flex: none;
+    }
+
+    .food-container.list-view .food-info {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .food-container.list-view .food-info .main-info,
+    .food-container.list-view .food-info .sub-info {
+        grid-column: 1;
     }
 }
 
