@@ -1,3 +1,16 @@
+/* CSS 변수 */
+:root {
+    --primary-color: #4CAF50;
+    --text-color: #333;
+    --text-light: #666;
+    --bg-color: #fff;
+    --bg-light: #f8f8f8;
+    --shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+    --border-radius: 10px;
+    --container-width: 1200px;
+}
+
 /* 기본 스타일 */
 * {
     margin: 0;
@@ -8,8 +21,24 @@
 body {
     font-family: 'Noto Sans KR', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #fff;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* 공통 섹션 스타일 */
+section {
+    animation: fadeIn 1s ease-out;
+    padding: 5rem 2rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
 }
 
 /* 네비게이션 바 */
@@ -23,7 +52,7 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow);
 }
 
 .nav-brand {
@@ -34,12 +63,17 @@ body {
 .nav-links a {
     margin-left: 2rem;
     text-decoration: none;
-    color: #333;
-    transition: color 0.3s ease;
+    color: var(--text-color);
+    transition: var(--transition);
 }
 
-.nav-links a:hover {
-    color: #666;
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--text-light);
+}
+
+.nav-links a.active {
+    font-weight: bold;
 }
 
 .menu-btn {
@@ -54,7 +88,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f8f8f8;
+    background: var(--bg-light);
     text-align: center;
 }
 
@@ -86,7 +120,7 @@ body {
 .about-image img {
     width: 100%;
     max-width: 500px;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
 }
 
 /* 갤러리 섹션 */
@@ -136,11 +170,24 @@ body {
 .social-links a {
     margin: 0 1rem;
     font-size: 1.5rem;
-    color: #333;
-    transition: color 0.3s ease;
+    color: var(--text-color);
+    transition: var(--transition);
 }
 
 .social-links a:hover {
+    color: var(--text-light);
+}
+
+.social-links a.naver-blog {
+    color: #333;
+    font-weight: 800;
+    font-size: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+    text-decoration: none;
+    padding: 0 5px;
+}
+
+.social-links a.naver-blog:hover {
     color: #666;
 }
 
@@ -148,43 +195,8 @@ body {
 footer {
     text-align: center;
     padding: 2rem;
-    background: #333;
-    color: #fff;
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-}
-
-/* 애니메이션 */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-section {
-    animation: fadeIn 1s ease-out;
+    background: var(--text-color);
+    color: var(--bg-color);
 }
 
 /* 맛집 페이지 스타일 */
@@ -197,7 +209,7 @@ section {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 2rem;
     position: relative;
 }
@@ -237,11 +249,11 @@ section {
 }
 
 .food-item {
-    background: #fff;
-    border-radius: 10px;
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
     position: relative;
 }
 
@@ -269,15 +281,10 @@ section {
     overflow: hidden;
 }
 
-.food-image img {
+.food-image iframe {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.food-item:hover .food-image img {
-    transform: scale(1.05);
+    border: 0;
 }
 
 .food-info {
@@ -290,18 +297,18 @@ section {
 }
 
 .address {
-    color: #666;
+    color: var(--text-light);
     margin-bottom: 1rem;
 }
 
 .address a {
-    color: #666;
+    color: var(--text-light);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: var(--transition);
 }
 
 .address a:hover {
-    color: #000;
+    color: var(--text-color);
 }
 
 .description {
@@ -317,15 +324,21 @@ section {
 }
 
 .tags span {
-    background: #f0f0f0;
+    background: var(--bg-light);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-light);
 }
 
 .rating {
     color: #ffd700;
+}
+
+.rating-number {
+    margin-left: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
 }
 
 .nav-links a.active {
@@ -355,22 +368,15 @@ section {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: #f8f8f8;
+    background: var(--bg-light);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-light);
 }
 
 .service-item i {
-    color: #4CAF50;
-}
-
-/* 평점 숫자 스타일 */
-.rating-number {
-    margin-left: 0.5rem;
-    color: #666;
-    font-size: 0.9rem;
+    color: var(--primary-color);
 }
 
 /* 가까운 명소 스타일 */
@@ -384,12 +390,12 @@ section {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 0.5rem;
 }
 
 .nearby-attractions h4 i {
-    color: #4CAF50;
+    color: var(--primary-color);
 }
 
 .nearby-attractions ul {
@@ -399,7 +405,7 @@ section {
 }
 
 .nearby-attractions li {
-    color: #666;
+    color: var(--text-light);
     font-size: 0.9rem;
     margin-bottom: 0.3rem;
 }
@@ -422,7 +428,7 @@ section {
     display: flex;
     justify-content: flex-end;
     margin: 2rem auto;
-    max-width: 1200px;
+    max-width: var(--container-width);
     padding: 0 2rem;
 }
 
@@ -435,7 +441,7 @@ section {
     background: #F5E6D3;
     cursor: pointer;
     padding: 0;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     display: flex;
     align-items: center;
 }
@@ -448,16 +454,13 @@ section {
     height: 27px;
     border-radius: 50%;
     background: white;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: var(--transition);
     top: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow);
 }
 
 .view-toggle button.active {
-    background: #4CAF50;
+    background: var(--primary-color);
 }
 
 .view-toggle button.active::before {
@@ -467,7 +470,7 @@ section {
 .view-toggle button i {
     position: absolute;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     color: #8B7355;
 }
 
@@ -629,7 +632,7 @@ section {
     display: none;
     height: 600px;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: var(--container-width);
     padding: 0 2rem;
 }
 
@@ -639,4 +642,70 @@ section {
 
 .food-list.hidden {
     display: none;
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .about-content,
+    .food-container.list-view .food-info {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1,
+    .food-hero h1 {
+        font-size: 2rem;
+    }
+
+    .food-container.list-view .food-item {
+        flex-direction: column;
+    }
+    
+    .food-container.list-view .food-image {
+        width: 100%;
+        height: 180px;
+        flex: none;
+    }
+
+    .food-container.list-view .food-info {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .food-container.list-view .food-info .main-info,
+    .food-container.list-view .food-info .sub-info {
+        grid-column: 1;
+    }
+
+    .service-options {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .service-item {
+        width: 100%;
+        justify-content: center;
+    }
 } 
