@@ -58,6 +58,13 @@ section {
 .nav-brand {
     font-size: 1.5rem;
     font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-brand:hover {
+    color: var(--primary-color);
 }
 
 .nav-links {
