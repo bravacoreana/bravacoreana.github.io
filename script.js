@@ -45,10 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // 모바일 메뉴 토글
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
+    const langDropdownContent = document.querySelector('.lang-dropdown-content');
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
+        if (langDropdownContent) {
+            langDropdownContent.classList.remove('show');
+        }
     });
 
     // 메뉴 링크 클릭 시 메뉴 닫기
@@ -66,6 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks.classList.remove('active');
         }
     });
+
+    // 초기 언어 설정
+    changeLanguage(currentLang);
 });
 
 // 언어 데이터
@@ -73,15 +80,16 @@ const translations = {
     ko: {
         home: '홈',
         about: '소개',
-        restaurants: '밀라노 맛집',
-        contact: '문의',
-        heroTitle: 'Liha Kim',
+        restaurants: '맛집',
+        contact: '연락처',
+        heroTitle: '이탈리아 맛집',
         heroSubtitle: '이탈리아 사는 리하킴',
         heroButton: '밀라노 맛집 리스트',
         contactTitle: 'Contact',
-        contactSubtitle: '문의하기',
-        email: 'contact@liha.kim',
-        copyright: '© 2024 Bravacoreana. All rights reserved.',
+        contactSubtitle: '연락처',
+        contactText: '이메일이나 소셜 미디어를 통해 연락해주세요.',
+        email: '이메일',
+        copyright: '© 2024 Coreana in Italia. All rights reserved.',
         languages: {
             ko: '한국어',
             en: 'English',
@@ -94,20 +102,47 @@ const translations = {
         aboutText2: '특히 밀라노의 맛집들을 소개하고 있어요. 한국인 관점에서 바라본 이탈리아 맛집들을 함께 나누고 싶습니다.',
         restaurantsTitle: '밀라노 맛집',
         restaurantsSubtitle: '이탈리아 밀라노의 맛있는 맛집들을 소개합니다',
-        viewMap: '지도 보기'
+        viewMap: '지도 보기',
+        koreanRecommended: '한국인 추천',
+        viewToggle: '보기 방식',
+        listView: '리스트 보기',
+        gridView: '그리드 보기',
+        mapView: '지도 보기',
+        rating: '별점',
+        address: '주소',
+        description: '설명',
+        tags: '태그',
+        serviceOptions: '서비스 옵션',
+        nearbyAttractions: '주변 명소',
+        area: '지역',
+        city: '도시',
+        restaurant1: '밀라노 레스토랑',
+        address1: '밀라노 비아 밀라노 123',
+        description1: '밀라노 중심부의 정통 이탈리아 요리',
+        tag1: '이탈리아',
+        tag2: '파인 다이닝',
+        rating1: '4.5',
+        service1: '와이파이',
+        service2: '주차',
+        nearby1: '주변 명소',
+        attraction1: '밀라노 대성당',
+        attraction2: '비토리오 에마누엘레 2세 갤러리',
+        area1: '센트로',
+        city1: '밀라노'
     },
     en: {
         home: 'Home',
         about: 'About',
-        restaurants: 'Milan Restaurants',
+        restaurants: 'Restaurants',
         contact: 'Contact',
-        heroTitle: 'Liha Kim',
+        heroTitle: 'Italian Restaurants',
         heroSubtitle: 'A Korean in Italy',
         heroButton: 'Milan Restaurant List',
         contactTitle: 'Contact',
-        contactSubtitle: 'Get in Touch',
-        email: 'contact@liha.kim',
-        copyright: '© 2024 Bravacoreana. All rights reserved.',
+        contactSubtitle: 'Contact',
+        contactText: 'Please contact me via email or social media.',
+        email: 'Email',
+        copyright: '© 2024 Coreana in Italia. All rights reserved.',
         languages: {
             ko: '한국어',
             en: 'English',
@@ -120,20 +155,47 @@ const translations = {
         aboutText2: 'I especially introduce restaurants in Milan. I want to share Italian restaurants from a Korean perspective.',
         restaurantsTitle: 'Milan Restaurants',
         restaurantsSubtitle: 'Introducing delicious restaurants in Milan, Italy',
-        viewMap: 'View Map'
+        viewMap: 'Map View',
+        koreanRecommended: 'Korean Recommended',
+        viewToggle: 'View Toggle',
+        listView: 'List View',
+        gridView: 'Grid View',
+        mapView: 'Map View',
+        rating: 'Rating',
+        address: 'Address',
+        description: 'Description',
+        tags: 'Tags',
+        serviceOptions: 'Service Options',
+        nearbyAttractions: 'Nearby Attractions',
+        area: 'Area',
+        city: 'City',
+        restaurant1: 'Ristorante Milano',
+        address1: 'Via Milano 123, Milano',
+        description1: 'Authentic Italian cuisine in the heart of Milan',
+        tag1: 'Italian',
+        tag2: 'Fine Dining',
+        rating1: '4.5',
+        service1: 'WiFi',
+        service2: 'Parking',
+        nearby1: 'Nearby Attractions',
+        attraction1: 'Duomo di Milano',
+        attraction2: 'Galleria Vittorio Emanuele II',
+        area1: 'Centro',
+        city1: 'Milano'
     },
     it: {
         home: 'Home',
         about: 'Chi Sono',
-        restaurants: 'Ristoranti Milano',
+        restaurants: 'Ristoranti',
         contact: 'Contatti',
-        heroTitle: 'Liha Kim',
+        heroTitle: 'Ristoranti Italiani',
         heroSubtitle: 'Una Coreana in Italia',
         heroButton: 'Lista Ristoranti Milano',
         contactTitle: 'Contatti',
-        contactSubtitle: 'Contattami',
-        email: 'contact@liha.kim',
-        copyright: '© 2024 Bravacoreana. Tutti i diritti riservati.',
+        contactSubtitle: 'Contatti',
+        contactText: 'Contattatemi via email o social media.',
+        email: 'Email',
+        copyright: '© 2024 Coreana in Italia. Tutti i diritti riservati.',
         languages: {
             ko: '한국어',
             en: 'English',
@@ -146,7 +208,33 @@ const translations = {
         aboutText2: 'In particolare, introduco i ristoranti di Milano. Voglio condividere i ristoranti italiani da una prospettiva coreana.',
         restaurantsTitle: 'Ristoranti Milano',
         restaurantsSubtitle: 'Presentazione dei deliziosi ristoranti di Milano, Italia',
-        viewMap: 'Vedi Mappa'
+        viewMap: 'Vedi Mappa',
+        koreanRecommended: 'Consigliato dai Coreani',
+        viewToggle: 'Cambia Vista',
+        listView: 'Vista Lista',
+        gridView: 'Vista Griglia',
+        mapView: 'Vista Mappa',
+        rating: 'Valutazione',
+        address: 'Indirizzo',
+        description: 'Descrizione',
+        tags: 'Tag',
+        serviceOptions: 'Opzioni di Servizio',
+        nearbyAttractions: 'Attrazioni Vicini',
+        area: 'Area',
+        city: 'Città',
+        restaurant1: 'Ristorante Milano',
+        address1: 'Via Milano 123, Milano',
+        description1: 'Cucina italiana autentica nel cuore di Milano',
+        tag1: 'Italiana',
+        tag2: 'Ristorante Fine Dining',
+        rating1: '4.5',
+        service1: 'WiFi',
+        service2: 'Parcheggio',
+        nearby1: 'Attrazioni Vicini',
+        attraction1: 'Duomo di Milano',
+        attraction2: 'Galleria Vittorio Emanuele II',
+        area1: 'Centro',
+        city1: 'Milano'
     }
 };
 
@@ -167,11 +255,14 @@ function changeLanguage(lang) {
     // 드롭다운 메뉴 닫기
     const dropdownContent = document.querySelector('.lang-dropdown-content');
     if (dropdownContent) {
-        dropdownContent.classList.remove('active');
+        dropdownContent.classList.remove('show');
     }
     
     // 텍스트 업데이트
     updateTexts();
+    
+    // 맛집 카드 업데이트
+    updateFoodCards();
 }
 
 // 텍스트 업데이트 함수
@@ -180,7 +271,11 @@ function updateTexts() {
     document.querySelectorAll('[data-key]').forEach(element => {
         const key = element.getAttribute('data-key');
         if (translations[currentLang][key]) {
-            element.textContent = translations[currentLang][key];
+            if (element.tagName === 'INPUT' && element.type === 'text') {
+                element.value = translations[currentLang][key];
+            } else {
+                element.textContent = translations[currentLang][key];
+            }
         }
     });
 
@@ -206,33 +301,144 @@ function updateTexts() {
     }
 }
 
-// 이벤트 리스너 설정
-document.addEventListener('DOMContentLoaded', () => {
-    // 언어 드롭다운 토글
-    const dropdownBtn = document.querySelector('.lang-dropdown-btn');
-    const dropdownContent = document.querySelector('.lang-dropdown-content');
-    
-    if (dropdownBtn && dropdownContent) {
-        dropdownBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdownContent.classList.toggle('active');
-        });
-        
-        // 언어 선택 이벤트
-        dropdownContent.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const lang = link.getAttribute('data-lang');
-                changeLanguage(lang);
-            });
-        });
-        
-        // 외부 클릭 시 드롭다운 닫기
-        document.addEventListener('click', () => {
-            dropdownContent.classList.remove('active');
-        });
+// 언어 드롭다운 토글
+const langDropdownBtn = document.querySelector('.lang-dropdown-btn');
+const langDropdownContent = document.querySelector('.lang-dropdown-content');
+const langLinks = document.querySelectorAll('.lang-dropdown-content a');
+
+// 현재 선택된 언어에 active 클래스 추가
+function updateActiveLanguage() {
+    langLinks.forEach(link => {
+        if (link.getAttribute('data-lang') === currentLang) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+// 초기 active 상태 설정
+updateActiveLanguage();
+
+// 언어 선택 이벤트 리스너
+langDropdownBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langDropdownContent.classList.toggle('show');
+});
+
+langLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = link.getAttribute('data-lang');
+        if (lang !== currentLang) {
+            changeLanguage(lang);
+            langDropdownContent.classList.remove('show');
+        }
+    });
+});
+
+// 드롭다운 외부 클릭 시 닫기
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.lang-dropdown')) {
+        langDropdownContent.classList.remove('show');
     }
-    
-    // 초기 언어 설정
-    changeLanguage(currentLang);
-}); 
+});
+
+// ESC 키로 팝업 닫기
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        langDropdownContent.classList.remove('show');
+    }
+});
+
+// 맛집 카드 업데이트 함수
+function updateFoodCards() {
+    const foodItems = document.querySelectorAll('.food-item');
+    foodItems.forEach(item => {
+        const title = item.querySelector('h3');
+        const description = item.querySelector('.description');
+        const address = item.querySelector('.address');
+        const tags = item.querySelectorAll('.tags span');
+        const serviceOptions = item.querySelectorAll('.service-item span');
+        const nearbyAttractions = item.querySelector('.nearby-attractions h4');
+        const rating = item.querySelector('.rating-number');
+        const area = item.querySelector('.area');
+        const city = item.querySelector('.city');
+
+        // 제목 업데이트
+        if (title) {
+            const key = title.getAttribute('data-key');
+            if (key && translations[currentLang][key]) {
+                title.textContent = translations[currentLang][key];
+            }
+        }
+
+        // 설명 업데이트
+        if (description) {
+            const key = description.getAttribute('data-key');
+            if (key && translations[currentLang][key]) {
+                description.textContent = translations[currentLang][key];
+            }
+        }
+
+        // 주소 업데이트
+        if (address) {
+            const key = address.getAttribute('data-key');
+            if (key && translations[currentLang][key]) {
+                address.textContent = translations[currentLang][key];
+            }
+        }
+
+        // 태그 업데이트
+        if (tags) {
+            tags.forEach(tag => {
+                const key = tag.getAttribute('data-key');
+                if (key && translations[currentLang][key]) {
+                    tag.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        // 서비스 옵션 업데이트
+        if (serviceOptions) {
+            serviceOptions.forEach(option => {
+                const key = option.getAttribute('data-key');
+                if (key && translations[currentLang][key]) {
+                    option.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        // 주변 명소 업데이트
+        if (nearbyAttractions) {
+            const key = nearbyAttractions.getAttribute('data-key');
+            if (key && translations[currentLang][key]) {
+                nearbyAttractions.textContent = translations[currentLang][key];
+            }
+        }
+
+        // 별점 업데이트
+        if (rating) {
+            const key = rating.getAttribute('data-key');
+            if (key && translations[currentLang][key]) {
+                rating.textContent = translations[currentLang][key];
+            }
+        }
+
+        // 지역 업데이트
+        if (area) {
+            const key = area.getAttribute('data-key');
+            if (key && translations[currentLang][key]) {
+                area.textContent = translations[currentLang][key];
+            }
+        }
+
+        // 도시 업데이트
+        if (city) {
+            const key = city.getAttribute('data-key');
+            if (key && translations[currentLang][key]) {
+                city.textContent = translations[currentLang][key];
+            }
+        }
+    });
+} 
