@@ -1,5 +1,8 @@
 const restaurants = [
     {
+        id: 1,
+        area: "Brera",
+        city: "Milan",
         name: "Pizzeria Capuano's",
         address: "Via Giuseppe Garibaldi, 125, 20121 Milano MI",
         addressLink: "https://maps.app.goo.gl/brbmQky3k3MtvUTJ8",
@@ -19,6 +22,9 @@ const restaurants = [
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.8!2d9.1733!3d45.4783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDI4JzQxLjkiTiA5wrAxMCczMy45IkU!5e0!3m2!1sko!2skr!4v1234567890!5m2!1sko!2skr"
     },
     {
+        id: 2,
+        area: "Isola",
+        city: "Milan",
         name: "La Prosciutteria",
         address: "Via Panfilo Castaldi, 19, 20124 Milano MI",
         addressLink: "https://maps.app.goo.gl/zopfPCrJ72UuhaSY9",
@@ -37,6 +43,9 @@ const restaurants = [
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.8!2d9.2044!3d45.4767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDI4JzM2LjEiTiA5wrAxMicxNS45IkU!5e0!3m2!1sko!2skr!4v1234567890!5m2!1sko!2skr"
     },
     {
+        id: 3,
+        area: "Brera",
+        city: "Milan",
         name: "Ginmi",
         address: "Via Giuseppe Garibaldi, 77, 20121 Milano MI",
         addressLink: "https://maps.app.goo.gl/UsKQ3KMrWVvBmh7QA",
@@ -56,6 +65,9 @@ const restaurants = [
         isKoreanRecommended: true
     },
     {
+        id: 4,
+        area: "Brera",
+        city: "Milan",
         name: "Noodle House",
         address: "Via Giuseppe Garibaldi, 77, 20121 Milano MI",
         addressLink: "https://maps.app.goo.gl/Qj1WKdVCdhrUEwYAA",
@@ -75,6 +87,9 @@ const restaurants = [
         isKoreanRecommended: true
     },
     {
+        id: 5,
+        area: "Brera",
+        city: "Milan",
         name: "Casa infante",
         address: "Via Giuseppe Garibaldi, 77, 20121 Milano MI",
         addressLink: "https://maps.app.goo.gl/KqGzViY1brn3nqH8A",
@@ -92,6 +107,9 @@ const restaurants = [
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.8!2d9.1858!3d45.4722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDI4JzE5LjkiTiA5wrAxMScxMC45IkU!5e0!3m2!1sko!2skr!4v1234567890!5m2!1sko!2skr"
     },
     {
+        id: 6,
+        area: "Porta Venezia",
+        city: "Milan",
         name: "Nottingham Forest",
         address: "Viale Piave, 1, 20129 Milano MI",
         addressLink: "https://maps.app.goo.gl/Ry59adfMHoUisjZ86",
@@ -110,6 +128,9 @@ const restaurants = [
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.8!2d9.2017!3d45.4677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDI4JzAzLjciTiA5wrAxMicwNi4xIkU!5e0!3m2!1sko!2skr!4v1234567890!5m2!1sko!2skr"
     },
     {
+        id: 7,
+        area: "Brera",
+        city: "Milan",
         name: "Vergani",
         address: "Via Giuseppe Garibaldi, 77, 20121 Milano MI",
         addressLink: "https://maps.app.goo.gl/pjvxnd55KNE6ojxz7",
@@ -127,6 +148,9 @@ const restaurants = [
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.8!2d9.1858!3d45.4722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDI4JzE5LjkiTiA5wrAxMScxMC45IkU!5e0!3m2!1sko!2skr!4v1234567890!5m2!1sko!2skr"
     },
     {
+        id: 8,
+        area: "Brera",
+        city: "Milan",
         name: "La Piola",
         address: "Via Giuseppe Garibaldi, 77, 20121 Milano MI",
         addressLink: "https://maps.app.goo.gl/g7NY3ZXhu3paa5D4A",

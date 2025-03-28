@@ -100,9 +100,37 @@ section {
     text-align: center;
 }
 
+.hero-content {
+    text-align: center;
+}
+
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    background-color: var(--text-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--text-color);
+}
+
+.hero-btn:hover {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: white;
+    transform: translateY(-1px);
 }
 
 /* 소개 섹션 */
@@ -769,9 +797,17 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .hero-content h1,
-    .food-hero h1 {
+    .hero-content h1 {
         font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .hero-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
     }
 
     .food-container.list-view .food-item {
