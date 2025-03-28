@@ -64,8 +64,8 @@ section {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
     align-items: center;
+    gap: 2rem;
     margin-left: auto;
 }
 
@@ -828,6 +828,8 @@ footer {
         z-index: 1000;
         padding: 2rem;
         margin-left: 0;
+        opacity: 1;
+        visibility: visible;
     }
 
     .nav-links.active {
@@ -963,6 +965,37 @@ footer {
     
     .about-text h2 {
         font-size: 1.5rem;
+    }
+
+    .lang-dropdown {
+        position: relative;
+        margin: 15px 0;
+        margin-left: auto;
+    }
+
+    .lang-dropdown-content {
+        position: fixed;
+        top: 50%;
+        right: 10%;
+        transform: translate(0, -50%);
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        z-index: 1000;
+        width: 80%;
+        max-width: 300px;
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        border: 1px solid #e0e0e0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .lang-dropdown-content.show {
+        display: block;
+        opacity: 1;
+        visibility: visible;
     }
 }
 
