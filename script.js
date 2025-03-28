@@ -252,6 +252,14 @@ function changeLanguage(lang) {
         currentLangSpan.textContent = lang.toUpperCase();
     }
     
+    // 모든 언어 옵션에서 active 클래스 제거
+    document.querySelectorAll('.lang-dropdown-content a').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // 현재 선택된 언어에 active 클래스 추가
+    document.querySelector(`.lang-dropdown-content a[data-lang="${lang}"]`).classList.add('active');
+    
     // 드롭다운 메뉴 닫기
     const dropdownContent = document.querySelector('.lang-dropdown-content');
     if (dropdownContent) {
@@ -260,9 +268,6 @@ function changeLanguage(lang) {
     
     // 텍스트 업데이트
     updateTexts();
-    
-    // 맛집 카드 업데이트
-    updateFoodCards();
 }
 
 // 텍스트 업데이트 함수
@@ -299,6 +304,9 @@ function updateTexts() {
             heroSubtitle.textContent = translations[currentLang].heroSubtitle;
         }
     }
+    
+    // 맛집 카드 업데이트
+    updateFoodCards();
 }
 
 // 언어 드롭다운 토글
