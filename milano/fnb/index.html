@@ -103,9 +103,9 @@
                                 ${restaurant.address}
                             </a>
                         </p>
-                        <p class="description">${restaurant.description}</p>
+                        <p class="description">${restaurant.description[currentLang]}</p>
                         <div class="tags">
-                            ${restaurant.tags.map(tag => `<span>${tag}</span>`).join('')}
+                            ${restaurant.tags[currentLang].map(tag => `<span>${tag}</span>`).join('')}
                         </div>
                     </div>
                     <div class="sub-info">
@@ -116,13 +116,13 @@
                         </div>
                         <div class="service-options">
                             ${restaurant.services.map(service => 
-                                `<span class="service-item"><i class="fas fa-${service.icon}"></i> ${service.text}</span>`
+                                `<span class="service-item"><i class="fas fa-${service.icon}"></i> ${service.text[currentLang]}</span>`
                             ).join('')}
                         </div>
                         <div class="nearby-attractions">
-                            <h4><i class="fas fa-map-signs"></i> 주변 명소</h4>
+                            <h4><i class="fas fa-map-signs"></i> <span data-key="nearbyAttractions">주변 명소</span></h4>
                             <ul>
-                                ${restaurant.nearby.map(attraction => `<li>${attraction}</li>`).join('')}
+                                ${restaurant.nearby[currentLang].map(attraction => `<li>${attraction}</li>`).join('')}
                             </ul>
                         </div>
                     </div>
@@ -136,6 +136,26 @@
         const foodContainer = document.querySelector('.food-container');
         restaurants.forEach(restaurant => {
             foodContainer.appendChild(createRestaurantCard(restaurant));
+        });
+
+        // 언어 변경 시 카드 업데이트
+        function updateFoodCards() {
+            foodContainer.innerHTML = '';
+            restaurants.forEach(restaurant => {
+                foodContainer.appendChild(createRestaurantCard(restaurant));
+            });
+        }
+
+        // 언어 변경 이벤트 리스너에 카드 업데이트 추가
+        document.querySelectorAll('.lang-dropdown-content a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = link.getAttribute('data-lang');
+                if (lang !== currentLang) {
+                    changeLanguage(lang);
+                    updateFoodCards();
+                }
+            });
         });
     </script>
 </body>
