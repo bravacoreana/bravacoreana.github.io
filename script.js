@@ -82,7 +82,7 @@ const translations = {
         about: '소개',
         restaurants: '맛집',
         contact: '연락처',
-        heroTitle: '이탈리아 맛집',
+        heroTitle: 'Liha Kim',
         heroSubtitle: '이탈리아 사는 리하킴',
         heroButton: '밀라노 맛집 리스트',
         contactTitle: 'Contact',
