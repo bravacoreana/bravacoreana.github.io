@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bravacoreana | 밀라노 맛집</title>
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <link rel="apple-touch-icon" href="../../images/favicon.png">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -11,10 +13,21 @@
     <nav class="navbar">
         <a href="/" class="nav-brand">Bravacoreana</a>
         <div class="nav-links">
-            <a href="/">홈</a>
-            <a href="/#about">소개</a>
-            <a href="/milano/fnb/">밀라노 맛집</a>
-            <a href="/#contact">문의</a>
+            <a href="/" class="nav-link" data-key="home">홈</a>
+            <a href="/about" class="nav-link" data-key="about">소개</a>
+            <a href="/milano/fnb/" class="nav-link" data-key="restaurants">밀라노 맛집</a>
+            <a href="/contact" class="nav-link" data-key="contact">문의</a>
+            <div class="lang-dropdown">
+                <button class="lang-dropdown-btn">
+                    <i class="fas fa-globe"></i>
+                    <span class="current-lang">KO</span>
+                </button>
+                <div class="lang-dropdown-content">
+                    <a href="#" data-lang="ko">한국어</a>
+                    <a href="#" data-lang="en">English</a>
+                    <a href="#" data-lang="it">Italiano</a>
+                </div>
+            </div>
         </div>
         <div class="hamburger">
             <span></span>
@@ -23,40 +36,37 @@
         </div>
     </nav>
 
-    <section class="food-hero">
+    <section class="hero food-hero">
         <div class="hero-content">
-            <h1>밀라노 맛집</h1>
-            <p>이탈리아 밀라노의 맛있는 식당들</p>
+            <h1 data-key="restaurantsTitle">밀라노 맛집</h1>
+            <p data-key="restaurantsSubtitle">이탈리아 밀라노의 맛있는 맛집들을 소개합니다</p>
         </div>
     </section>
 
-    <div class="view-toggle">
-        <button id="viewToggleBtn">
-            <i class="fas fa-list"></i>
-            <i class="fas fa-th-large"></i>
-        </button>
-    </div>
+    <section class="map-view">
+        <div class="container">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44789.7!2d9.1858!3d45.4642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6a9f73a768b%3A0xaf0d246b3d4d3fd1!2sMilan%2C%20Metropolitan%20City%20of%20Milan!5e0!3m2!1sen!2sit!4v1647856789012!5m2!1sen!2sit" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
 
-    <div id="mapView" class="map-view">
-        <iframe 
-            src="https://www.google.com/maps/d/embed?mid=1YOUR_CUSTOM_MAP_ID"
-            width="100%" 
-            height="100%" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-
-    <section class="food-list" id="foodList">
-        <div class="food-container">
-            <!-- 식당 카드들이 여기에 동적으로 추가됩니다 -->
+    <section class="restaurants">
+        <div class="container">
+            <div class="view-toggle">
+                <button id="viewToggleBtn" class="view-toggle-btn">
+                    <i class="fas fa-th-large"></i>
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+            <div class="food-container">
+                <!-- 레스토랑 카드들이 여기에 동적으로 추가됩니다 -->
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Bravacoreana. All rights reserved.</p>
+        <p data-key="copyright">&copy; 2024 Bravacoreana. All rights reserved.</p>
     </footer>
 
     <script src="data.js"></script>
