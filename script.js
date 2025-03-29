@@ -7,27 +7,22 @@ const translations = {
         home: '홈',
         about: '소개',
         restaurants: '맛집',
-        contact: '연락처',
+        contact: '문의',
         heroTitle: 'Liha Kim',
         heroSubtitle: '이탈리아 사는 리하킴',
         heroButton: '밀라노 맛집 리스트',
-        contactTitle: 'Contact',
-        contactSubtitle: '연락처',
-        contactText: '이메일이나 소셜 미디어를 통해 연락해주세요.',
-        email: '이메일',
-        copyright: '© 2024 Coreana in Italia. All rights reserved.',
+        aboutTitle: '소개',
+        aboutSubtitle: '이탈리아 사는 리하킴',
+        aboutGreeting: '안녕하세요, 리하킴입니다!',
+        aboutText1: '이탈리아 밀라노에서 살고 있는 한국인입니다. 이탈리아 여행, 음식, 문화 등 이탈리아를 소개하는 콘텐츠를 만들어요!.',
+        contactTitle: '문의하기',
         languages: {
             ko: '한국어',
             en: 'English',
             it: 'Italiano'
         },
-        aboutTitle: 'About Me',
-        aboutSubtitle: '이탈리아 사는 리하킴',
-        aboutGreeting: '안녕하세요, 리하킴입니다!',
-        aboutText1: '이탈리아 밀라노에서 살고 있는 한국인입니다. 이탈리아의 맛있는 음식과 문화를 공유하고 싶어 이 블로그를 시작했습니다.',
-        aboutText2: '특히 밀라노의 맛집들을 소개하고 있어요. 한국인 관점에서 바라본 이탈리아 맛집들을 함께 나누고 싶습니다.',
         restaurantsTitle: '밀라노 맛집',
-        restaurantsSubtitle: '이탈리아 밀라노의 맛있는 맛집들을 소개합니다',
+        restaurantsSubtitle: '이탈리아 밀라노의 맛집들을 소개합니다',
         viewMap: '지도 보기',
         koreanRecommended: '한국인 추천',
         viewToggle: '보기 방식',
@@ -62,23 +57,18 @@ const translations = {
         restaurants: 'Restaurants',
         contact: 'Contact',
         heroTitle: 'Liha Kim',
-        heroSubtitle: 'A Korean in Italy',
+        heroSubtitle: 'Living in Italy',
         heroButton: 'Milan Restaurant List',
+        aboutTitle: 'About',
+        aboutSubtitle: 'Living in Italy',
+        aboutGreeting: 'Hello, I\'m Liha Kim!',
+        aboutText1: 'I\'m a Korean living in Milan, Italy. I create content introducing Italy through travel, food, and culture!',
         contactTitle: 'Contact',
-        contactSubtitle: 'Contact',
-        contactText: 'Please contact me via email or social media.',
-        email: 'Email',
-        copyright: '© 2024 Coreana in Italia. All rights reserved.',
         languages: {
             ko: '한국어',
             en: 'English',
             it: 'Italiano'
         },
-        aboutTitle: 'About Me',
-        aboutSubtitle: 'A Korean in Italy',
-        aboutGreeting: 'Hello, I\'m Liha Kim!',
-        aboutText1: 'I\'m a Korean living in Milan, Italy. I started this blog to share delicious Italian food and culture.',
-        aboutText2: 'I especially introduce restaurants in Milan. I want to share Italian restaurants from a Korean perspective.',
         restaurantsTitle: 'Milan Restaurants',
         restaurantsSubtitle: 'Introducing delicious restaurants in Milan, Italy',
         viewMap: 'Map View',
@@ -95,7 +85,7 @@ const translations = {
         nearbyAttractions: 'Nearby Attractions',
         area: 'Area',
         city: 'City',
-        restaurant1: 'Ristorante Milano',
+        restaurant1: 'Milan Restaurant',
         address1: 'Via Milano 123, Milano',
         description1: 'Authentic Italian cuisine in the heart of Milan',
         tag1: 'Italian',
@@ -104,7 +94,7 @@ const translations = {
         service1: 'WiFi',
         service2: 'Parking',
         nearby1: 'Nearby Attractions',
-        attraction1: 'Duomo di Milano',
+        attraction1: 'Milan Cathedral',
         attraction2: 'Galleria Vittorio Emanuele II',
         area1: 'Centro',
         city1: 'Milano'
@@ -115,23 +105,18 @@ const translations = {
         restaurants: 'Ristoranti',
         contact: 'Contatti',
         heroTitle: 'Liha Kim',
-        heroSubtitle: 'Una Coreana in Italia',
+        heroSubtitle: 'Vivendo in Italia',
         heroButton: 'Lista Ristoranti Milano',
+        aboutTitle: 'Chi Sono',
+        aboutSubtitle: 'Vivendo in Italia',
+        aboutGreeting: 'Ciao, sono Liha Kim!',
+        aboutText1: 'Sono una coreana che vive a Milano, Italia. Creo contenuti che introducono l\'Italia attraverso viaggi, cibo e cultura!',
         contactTitle: 'Contatti',
-        contactSubtitle: 'Contatti',
-        contactText: 'Contattatemi via email o social media.',
-        email: 'Email',
-        copyright: '© 2024 Coreana in Italia. Tutti i diritti riservati.',
         languages: {
             ko: '한국어',
             en: 'English',
             it: 'Italiano'
         },
-        aboutTitle: 'Chi Sono',
-        aboutSubtitle: 'Una Coreana in Italia',
-        aboutGreeting: 'Ciao, sono Liha Kim!',
-        aboutText1: 'Sono una coreana che vive a Milano, Italia. Ho iniziato questo blog per condividere il delizioso cibo e la cultura italiana.',
-        aboutText2: 'In particolare, introduco i ristoranti di Milano. Voglio condividere i ristoranti italiani da una prospettiva coreana.',
         restaurantsTitle: 'Ristoranti Milano',
         restaurantsSubtitle: 'Presentazione dei deliziosi ristoranti di Milano, Italia',
         viewMap: 'Vedi Mappa',
@@ -295,6 +280,7 @@ function changeLanguage(lang) {
     
     // 텍스트 업데이트
     updateTexts();
+    updateHeroSection();
 }
 
 // 텍스트 업데이트 함수
@@ -311,27 +297,6 @@ function updateTexts() {
         }
     });
 
-    // 페이지별 히어로 섹션 업데이트
-    const path = window.location.pathname;
-    const heroTitle = document.querySelector('.hero-content h1');
-    const heroSubtitle = document.querySelector('.hero-content p');
-
-    if (heroTitle && heroSubtitle) {
-        if (path === '/about') {
-            heroTitle.textContent = translations[currentLang].aboutTitle;
-            heroSubtitle.textContent = translations[currentLang].aboutSubtitle;
-        } else if (path === '/contact') {
-            heroTitle.textContent = translations[currentLang].contactTitle;
-            heroSubtitle.textContent = translations[currentLang].contactSubtitle;
-        } else if (path === '/milano/fnb/') {
-            heroTitle.textContent = translations[currentLang].restaurantsTitle;
-            heroSubtitle.textContent = translations[currentLang].restaurantsSubtitle;
-        } else {
-            heroTitle.textContent = translations[currentLang].heroTitle;
-            heroSubtitle.textContent = translations[currentLang].heroSubtitle;
-        }
-    }
-    
     // 맛집 카드 업데이트
     updateFoodCards();
 }
@@ -462,4 +427,26 @@ function updateFoodCards() {
             }
         }
     });
+}
+
+// 페이지별 히어로 섹션 업데이트 함수
+function updateHeroSection() {
+    const currentLang = getCurrentLanguage();
+    const path = window.location.pathname;
+    
+    // 페이지별 히어로 섹션 업데이트
+    if (path === '/') {
+        // 메인 페이지
+        document.querySelector('.hero h1').textContent = translations[currentLang].heroTitle;
+        document.querySelector('.hero p').textContent = translations[currentLang].heroSubtitle;
+        document.querySelector('.hero-description').textContent = translations[currentLang].heroDescription;
+    } else if (path === '/about/') {
+        // 소개 페이지
+        document.querySelector('.about-hero h1').textContent = translations[currentLang].aboutTitle;
+        document.querySelector('.about-hero p').textContent = translations[currentLang].aboutSubtitle;
+    } else if (path === '/contact/') {
+        // 문의 페이지
+        document.querySelector('.contact-hero h1').textContent = translations[currentLang].contactTitle;
+        document.querySelector('.contact-hero p').textContent = translations[currentLang].contactSubtitle;
+    }
 } 
