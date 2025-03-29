@@ -14,7 +14,7 @@ const translations = {
         aboutTitle: '소개',
         aboutSubtitle: '이탈리아 사는 리하킴',
         aboutGreeting: '안녕하세요, 리하킴입니다!',
-        aboutText1: '이탈리아 밀라노에서 살고 있는 한국인입니다. 이탈리아 여행, 음식, 문화 등 이탈리아를 소개하는 콘텐츠를 만들어요!.',
+        aboutText1: '이탈리아에서 살고 있는 한국인입니다. 이탈리아 여행, 음식, 문화 등 이탈리아를 소개하는 콘텐츠를 만들어요!',
         contactTitle: '문의하기',
         languages: {
             ko: '한국어',
@@ -62,7 +62,7 @@ const translations = {
         aboutTitle: 'About',
         aboutSubtitle: 'Living in Italy',
         aboutGreeting: 'Hello, I\'m Liha Kim!',
-        aboutText1: 'I\'m a Korean living in Milan, Italy. I create content introducing Italy through travel, food, and culture!',
+        aboutText1: 'I am a Korean living in Italy. I create content introducing Italy through travel, food, culture and more!',
         contactTitle: 'Contact',
         languages: {
             ko: '한국어',
@@ -110,7 +110,7 @@ const translations = {
         aboutTitle: 'Chi Sono',
         aboutSubtitle: 'Vivendo in Italia',
         aboutGreeting: 'Ciao, sono Liha Kim!',
-        aboutText1: 'Sono una coreana che vive a Milano, Italia. Creo contenuti che introducono l\'Italia attraverso viaggi, cibo e cultura!',
+        aboutText1: 'Sono una coreana che vive in Italia. Creo contenuti che presentano l\'Italia attraverso viaggi, cibo, cultura e altro!',
         contactTitle: 'Contatti',
         languages: {
             ko: '한국어',
